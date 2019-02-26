@@ -24,13 +24,14 @@ package cse360assign3;
 public class Calculator {
 
 	private int total;
-	 
+	private String history;
         /**
          * initialize total=0
          */
 	public Calculator ()
         {
 		total = 0;  
+                history = new String ("0");
 	}
 	
 	public int getTotal () 
@@ -46,14 +47,16 @@ public class Calculator {
          * add method that adds total to the value 
          */
         {
-		total = total + value;
+		
+                 history+= " + " + value;
+                 total = total + value;
 	}
 	
 	public void subtract (int value)
          /**
          * subtract method that subtract total from the value 
          */       
-        {
+        {       history+= " - " + value;
 		total = total - value;
 	}
 	
@@ -61,7 +64,7 @@ public class Calculator {
         /**
          * The multiply method multiply the total by the parameter
          */        
-        {
+        {       history+= " * " + value;
 		total= total * value;
 	}
 	
@@ -70,7 +73,7 @@ public class Calculator {
          * The divide method should divide the total by the parameter. 
          * Use integer division. If the parameter is zero, set the total to zero.
          */       
-        {
+        {       history+= " / " + value;
 		if (value == 0)
                     total = 0;
                 else 
@@ -84,6 +87,6 @@ public class Calculator {
          */
         
         {
-		return "";
+		return history;
 	}
 }
